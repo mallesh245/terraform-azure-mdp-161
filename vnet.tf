@@ -33,6 +33,18 @@ resource "azurerm_subnet_network_security_group_association" "web-nsg-assoc" {
   network_security_group_id = azurerm_network_security_group.web-nsg.id
 }
 
+# public ip
+resource "azurerm_public_ip" "web-pip" {
+  name                = "web-pip"
+  resource_group_name = azurerm_resource_group.web-rg.name
+  location            = azurerm_resource_group.web-rg.location
+  allocation_method   = "Static"
+
+  tags = {
+    env = "dev"
+  }
+}
+
 # network security rules
 
 resource "azurerm_network_security_rule" "web-ssh" {
