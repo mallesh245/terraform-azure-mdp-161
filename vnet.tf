@@ -9,7 +9,7 @@ resource "azurerm_virtual_network" "web-vnet" {
     tier = "frontend"
   }
 }
-
+# subnet
 resource "azurerm_subnet" "web-subnet" {
   name                 = "web-subnet"
   resource_group_name  = azurerm_resource_group.web-rg.name
