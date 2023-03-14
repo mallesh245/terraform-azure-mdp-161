@@ -19,7 +19,7 @@ resource "azurerm_subnet" "web-subnet" {
 
 # network security group
 resource "azurerm_network_security_group" "web-rg" {
-  name                = "web-firewall nsg"
+  name                = "web-nsg"
   location            = azurerm_resource_group.web-rg.location
   resource_group_name = azurerm_resource_group.web-rg.name
   tags = {
