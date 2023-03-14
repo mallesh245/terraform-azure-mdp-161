@@ -5,7 +5,7 @@ resource "azurerm_linux_virtual_machine" "web-vm" {
   location            = azurerm_resource_group.web-rg.location
   size                = "Standard_F2"
   admin_username      = "adminuser"
-  custom-data         =  filebase64(web-sh)
+  custom_data         =  filebase64("web-sh")
   network_interface_ids = [
     azurerm_network_interface.web-nic.id,
   ]
