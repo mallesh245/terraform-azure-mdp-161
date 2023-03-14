@@ -27,6 +27,12 @@ resource "azurerm_network_security_group" "web-nsg" {
   }
 }
 
+# association nsg with subnet
+resource "azurerm_subnet_network_security_group_association" "web-nsg-assoc" {
+  subnet_id                 = azurerm_subnet.web-subnet.id
+  network_security_group_id = azurerm_network_security_group.web-nsg.id
+}
+
 # network security rules
 
 resource "azurerm_network_security_rule" "web-ssh" {
