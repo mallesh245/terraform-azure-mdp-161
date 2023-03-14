@@ -18,7 +18,7 @@ resource "azurerm_subnet" "web-subnet" {
 }
 
 # network security group
-resource "azurerm_network_security_group" "web-rg" {
+resource "azurerm_network_security_group" "web-nsg" {
   name                = "web-nsg"
   location            = azurerm_resource_group.web-rg.location
   resource_group_name = azurerm_resource_group.web-rg.name
@@ -29,7 +29,7 @@ resource "azurerm_network_security_group" "web-rg" {
 
 # network security rules
 
- resource "azurerm_network_security_rule" "web-ssh" {
+resource "azurerm_network_security_rule" "web-ssh" {
   name                        = "ssh"
   priority                    = 500
   direction                   = "Inbound"
